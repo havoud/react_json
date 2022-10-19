@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Table from './Table';
+import data from "./data.json"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const getHeadings = () => {
+        return (
+            Object.keys(data[0])
+        );
+    }
+    return (
+        <div className="container">
+            <Table theadData={getHeadings()} tbodyData={data}/>
+        </div>
+    );
 }
 
 export default App;
